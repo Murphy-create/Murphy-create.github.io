@@ -1,8 +1,947 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1> hello there </h1>
-        <p> welcome to my first website</p>
-        <p><a href="Projects.html">some projects</ahref></a></p>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leo Murphy — Mechanical &amp; Automation Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #F6F3EE;
+      --bg-alt:   #EDE9E1;
+      --ink:      #141210;
+      --ink-mid:  #3D3935;
+      --green:    #1B4332;
+      --green-2:  #2D6A4F;
+      --tan:      #8B7B65;
+      --rule:     #CEC9C1;
+      --muted:    #6B6460;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: var(--bg);
+      border-color: var(--rule);
+    }
+    .nav-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 5rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-num {
+      position: absolute;
+      bottom: -0.05em;
+      right: -0.02em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28vw;
+      font-weight: 600;
+      color: var(--bg-alt);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 2.5rem;
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--tan);
+    }
+    h1.hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4.5rem, 12vw, 13rem);
+      font-weight: 300;
+      line-height: 0.86;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    h1.hero-name em {
+      font-style: italic;
+      color: var(--green);
+    }
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 0 2.5rem;
+      gap: 2rem;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 28rem;
+      line-height: 1.45;
+    }
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+      flex-shrink: 0;
+    }
+    .hero-meta span {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* Technical crosshair decoration */
+    .hero-crosshair {
+      position: absolute;
+      top: 6rem;
+      right: 4rem;
+      width: 5rem;
+      height: 5rem;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 7rem 3rem; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+    .s-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--tan);
+      flex-shrink: 0;
+    }
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .s-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin-left: 0.75rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      border-top: 1px solid var(--rule);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .about-body {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fact {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      gap: 0.2rem;
+    }
+    .fact:first-child { border-top: 1px solid var(--rule); }
+    .fact-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+    .fact-value {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+    }
+    .fact-value a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .fact-value a:hover { text-decoration: underline; }
+
+    /* ── EXPERIENCE ── */
+    #experience {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--rule);
+    }
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--rule); }
+    .exp-period {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+      color: var(--muted);
+      padding-top: 0.3rem;
+    }
+    .exp-body {}
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.05;
+      margin-bottom: 0.2rem;
+    }
+    .exp-org {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 0.75rem;
+    }
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 42rem;
+    }
+    .exp-type {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      border-top: 1px solid var(--rule);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+    }
+    .p-card {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 2rem 1.75rem;
+      transition: background 0.2s;
+    }
+    .p-card:hover { background: var(--bg-alt); }
+    .p-card.span2 { grid-column: span 2; }
+    .p-card.span3 { grid-column: span 3; }
+    .p-idx {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.57rem;
+      letter-spacing: 0.13em;
+      color: var(--tan);
+      margin-bottom: 1.1rem;
+    }
+    .p-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .p-card.span2 .p-title { font-size: 2rem; }
+    .p-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--green-2);
+      margin-bottom: 0.75rem;
+    }
+    .p-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .p-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1.1rem;
+    }
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid rgba(27,67,50,0.35);
+      padding: 0.18rem 0.45rem;
+    }
+    .p-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+    .p-status::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--tan);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── SKILLS ── */
+    #skills {
+      background: var(--green);
+      border-top: 1px solid var(--rule);
+    }
+    #skills .s-title { color: var(--bg); }
+    #skills .s-num   { color: rgba(246,243,238,0.35); }
+    #skills .s-rule  { background: rgba(246,243,238,0.12); }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3.5rem;
+    }
+    .skill-group {}
+    .sk-heading {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(246,243,238,0.4);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(246,243,238,0.12);
+    }
+    .sk-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(246,243,238,0.08);
+    }
+    .sk-name {
+      font-size: 0.88rem;
+      color: rgba(246,243,238,0.88);
+      font-weight: 300;
+    }
+    .sk-bar {
+      display: flex;
+      gap: 3px;
+    }
+    .sk-bar span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(246,243,238,0.18);
+    }
+    .sk-bar span.on { background: rgba(246,243,238,0.88); }
+
+    .certs-row {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(246,243,238,0.12);
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .cert {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .cert-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--bg);
+    }
+    .cert-detail {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: rgba(246,243,238,0.4);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+    .contact-inner { max-width: 38rem; margin: 0 auto; }
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .c-link { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+    .c-link-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+    .c-link-val {
+      font-size: 0.9rem;
+      color: var(--green);
+      font-weight: 400;
+    }
+    .c-link:hover .c-link-val { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 3rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      #hero { padding: 5rem 1.5rem 0; }
+      .hero-bg-num { font-size: 40vw; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .p-card.span2, .p-card.span3 { grid-column: span 1; }
+      .p-card.span2 .p-title { font-size: 1.55rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .hero-meta { align-items: flex-start; }
+      .certs-row { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-name" href="#hero">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- decorative crosshair -->
+    <svg class="hero-crosshair" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="30" stroke="#1B4332" stroke-width="0.75"/>
+      <circle cx="40" cy="40" r="4" stroke="#1B4332" stroke-width="0.75"/>
+      <line x1="40" y1="0" x2="40" y2="28" stroke="#1B4332" stroke-width="0.75"/>
+      <line x1="40" y1="52" x2="40" y2="80" stroke="#1B4332" stroke-width="0.75"/>
+      <line x1="0" y1="40" x2="28" y2="40" stroke="#1B4332" stroke-width="0.75"/>
+      <line x1="52" y1="40" x2="80" y2="40" stroke="#1B4332" stroke-width="0.75"/>
+      <rect x="0" y="0" width="8" height="8" stroke="#1B4332" stroke-width="0.75" fill="none"/>
+      <rect x="72" y="72" width="8" height="8" stroke="#1B4332" stroke-width="0.75" fill="none"/>
+    </svg>
+
+    <div class="hero-bg-num">LM</div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Mechanical &amp; Automation Engineer</div>
+      <h1 class="hero-name">Leo<br><em>Murphy</em></h1>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-tagline">Building systems that move, think, and endure — from PLC control panels to robotic arms and DNA automation.</p>
+      <div class="hero-meta">
+        <span>Kildare, Ireland</span>
+        <span>BEng + MEng — DCU 2025</span>
+        <span>Open to opportunities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">About</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-lead reveal">Mechanical and manufacturing engineer with a master's in simulation, a deep hands-on practice, and a maker's instinct for building things that actually work.</p>
+        <p class="about-body reveal">I completed my undergraduate and postgraduate degrees at Dublin City University simultaneously, graduating in 2025 with specialisms in mechanical design, PLC automation, and computational simulation using CFD and FEA tools.</p>
+        <p class="about-body reveal">Outside the degree, I've been building since before college — home foundries, Arduino heart-rate monitors, line-following robots. The thread connecting all of it: an obsession with making physical systems behave exactly as intended.</p>
+        <p class="about-body reveal">My most recent professional role was as an Automation Engineer at Murphys International, where I programmed PLCs, designed and wired control panels, and built out educational demonstrations for secondary school students. I also demonstated SolidWorks to first-year DCU students.</p>
+      </div>
+      <div class="about-aside reveal">
+        <div class="fact">
+          <span class="fact-label">Email</span>
+          <span class="fact-value"><a href="mailto:Leoantomurphy@gmail.com">Leoantomurphy@gmail.com</a></span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">LinkedIn</span>
+          <span class="fact-value"><a href="https://linkedin.com/in/leo-murphy-205834238" target="_blank" rel="noopener">leo-murphy-205834238</a></span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Location</span>
+          <span class="fact-value">Kilcock, Co. Kildare, Ireland</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Education</span>
+          <span class="fact-value">BEng Mechanical &amp; Manufacturing, DCU<br>MEng Mechanical &amp; Simulation, DCU</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Disciplines</span>
+          <span class="fact-value">PLC Programming · CAD/CAM · Simulation (CFD/FEA) · Electronics · Robotics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Experience</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-period">Mar 2024<br>Dec 2024</div>
+        <div class="exp-body">
+          <div class="exp-role">Automation Engineer</div>
+          <div class="exp-org">Murphys International</div>
+          <p class="exp-desc">Full-time role in the automation department. Programmed PLCs, designed and wired control panels from scratch, sourced components, and produced technical documentation. Built educational demonstration panels for secondary schools — including HMI interfaces, motor control, traffic-light logic, and custom ladder-logic games.</p>
+          <span class="exp-type">Full-time</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-period">Sep 2024<br>Nov 2024</div>
+        <div class="exp-body">
+          <div class="exp-role">SolidWorks Demonstrator</div>
+          <div class="exp-org">Dublin City University</div>
+          <p class="exp-desc">Instructed first-year engineering students in 3D parametric modelling using SolidWorks. Delivered hands-on lab sessions, guiding students through core CAD workflows and mechanical assembly principles.</p>
+          <span class="exp-type">Part-time · Academic</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-period">Jun 2023<br>Aug 2023</div>
+        <div class="exp-body">
+          <div class="exp-role">Construction Labourer</div>
+          <div class="exp-org">AK Civil &amp; Construction</div>
+          <p class="exp-desc">Full-time summer position on a civil engineering site. Roles included constructing formwork (shutters), tying rebar cages, and concrete finishing. Worked independently with a high degree of accountability for build quality.</p>
+          <span class="exp-type">Full-time · Seasonal</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-period">May 2022<br>Sep 2022</div>
+        <div class="exp-body">
+          <div class="exp-role">Warehouse Operative</div>
+          <div class="exp-org">Musgraves</div>
+          <p class="exp-desc">Full-time warehouse role operating under time pressure within a structured logistics system. Operated heavy machinery (pallet trucks) and adhered to rigorous health and safety protocols throughout.</p>
+          <span class="exp-type">Full-time · Seasonal</span>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-period">2014<br>Present</div>
+        <div class="exp-body">
+          <div class="exp-role">Farm Labourer</div>
+          <div class="exp-org">Family Farm</div>
+          <p class="exp-desc">Over a decade of consistent agricultural work — mornings, evenings, and weekends throughout secondary school and university. Responsibilities span livestock feeding, dosing, herding, treatment, and general farm maintenance. Regular operation of heavy machinery including tractors and telehandlers.</p>
+          <span class="exp-type">Ongoing</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Projects</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Featured -->
+      <div class="p-card span2 reveal">
+        <div class="p-idx">P — 001 · Featured</div>
+        <div class="p-title">DNA Amplification Automation System</div>
+        <div class="p-year">Final Year Project · 2025</div>
+        <p class="p-desc">Automated LAMP and PCR biological procedures — techniques used to amplify DNA — within a fully closed-loop mechatronic system. A main motor spins an offset disk to generate centrifugal forces that drive liquid movement through microfluidic channels. A secondary motor, controlled via closed-loop PID, dynamically alters the direction of centrifugal force to route reagents through different stages. A heater manages thermal cycling for DNA amplification; a camera detects colorimetric results and reports back to a master control node. The master node maintains a registry of disk types and associated instruction sequences, orchestrates inter-node messaging, and manages precise timing across the entire process.</p>
+        <div class="p-tags">
+          <span class="tag">PID Control</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Mechatronics</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Microfluidics</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 002</div>
+        <div class="p-title">6-DOF Robot Arm</div>
+        <div class="p-year">2024 — Ongoing</div>
+        <p class="p-desc">Multi-phase robotics project currently in development. Built and validated inverse kinematics on a desktop-scale proof-of-concept, then iterated to a second prototype using stepper motors and magnetic encoders for advanced closed-loop control. Next iteration: a 5-axis arm driven by NEMA 17 steppers, geared through twin cycloidal drives (base and lower arm) and a capstan drive (upper arm).</p>
+        <div class="p-tags">
+          <span class="tag">Inverse Kinematics</span>
+          <span class="tag">Stepper Motors</span>
+          <span class="tag">Cycloidal Drive</span>
+          <span class="tag">Control Theory</span>
+        </div>
+        <div class="p-status">In development</div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 003</div>
+        <div class="p-title">PCB Business Card</div>
+        <div class="p-year">2023</div>
+        <p class="p-desc">A fully custom PCB the size of a business card capable of running interactive games. Powered by a 3.3V coin cell, featuring 5 tactile buttons and a Charlieplexed LED matrix display, all driven by an ATmega328p-au microcontroller. A statement piece at the intersection of electronics and product design.</p>
+        <div class="p-tags">
+          <span class="tag">PCB Design</span>
+          <span class="tag">AVR / ATmega</span>
+          <span class="tag">Charlieplexing</span>
+          <span class="tag">Embedded C</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 004</div>
+        <div class="p-title">PLC Control Panel Suite</div>
+        <div class="p-year">2024</div>
+        <p class="p-desc">Designed and wired multiple control panels during my time at Murphys International. Highlights include a secondary-school demonstration unit featuring motor control, HMI touchscreen interaction, animated traffic-light logic, and playable Snake — all running on ladder logic to illustrate PLC programming concepts to non-technical audiences.</p>
+        <div class="p-tags">
+          <span class="tag">PLC / Ladder Logic</span>
+          <span class="tag">HMI</span>
+          <span class="tag">Panel Wiring</span>
+          <span class="tag">Motor Control</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 005</div>
+        <div class="p-title">Autonomously Guided Vehicle</div>
+        <div class="p-year">2021 · DCU</div>
+        <p class="p-desc">Designed and manufactured a line-following robot capable of traversing a track, executing a three-point turn, and returning — on repeat. Designed within strict material and dimensional constraints. Required integration of sensor arrays, motor drivers, and control logic within a tight mechanical package.</p>
+        <div class="p-tags">
+          <span class="tag">Robotics</span>
+          <span class="tag">Line Following</span>
+          <span class="tag">Sensors</span>
+          <span class="tag">Manufacturing</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 006</div>
+        <div class="p-title">Heart Rate Monitor Proof of Concept</div>
+        <div class="p-year">2022</div>
+        <p class="p-desc">Photoplethysmography (PPG) sensor built with an LDR, green LED, and Arduino. A green LED illuminates the skin; the LDR detects changes in light absorption correlated with blood flow pulses. A 5-point moving average filter smooths the signal. A clear, repeatable pulse was successfully detected — an honest first encounter with signal processing and bio-sensing.</p>
+        <div class="p-tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">Signal Processing</span>
+          <span class="tag">PPG Sensing</span>
+          <span class="tag">Analogue Electronics</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 007</div>
+        <div class="p-title">Hydrodynamic Boat Project</div>
+        <div class="p-year">2021 · DCU</div>
+        <p class="p-desc">Modelled a boat hull in SolidWorks, calculated a velocity–time curve, tilt angle, and predicted travel time. 3D-printed the hull and raced physical prototypes against theoretical predictions to validate the model. An early lesson in the gap — and the bridge — between simulation and reality.</p>
+        <div class="p-tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Fluid Dynamics</span>
+          <span class="tag">Verification</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 008</div>
+        <div class="p-title">Aluminium Foundry</div>
+        <div class="p-year">2020 · Personal</div>
+        <p class="p-desc">Built a small backyard foundry from a repurposed hoover and 3D-printed components. Produced sand-casting blanks from printed patterns and successfully cast aluminium parts. One of the earliest projects — proof that you can manufacture almost anything with enough ingenuity and the right heat.</p>
+        <div class="p-tags">
+          <span class="tag">Metal Casting</span>
+          <span class="tag">Sand Moulding</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">DIY</span>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-idx">P — 009</div>
+        <div class="p-title">Fireman Robot</div>
+        <div class="p-year">2022 · DCU</div>
+        <p class="p-desc">Competitive university project: design and build a robot to climb a 1-metre ladder carrying an open beaker of water without spilling. Constrained to limited materials, components, and manufacturing processes. The robot raced against other student designs at the end of the project.</p>
+        <div class="p-tags">
+          <span class="tag">Mechanical Design</span>
+          <span class="tag">Constrained Manufacturing</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="s-num">04</span>
+      <h2 class="s-title">Skills</h2>
+      <div class="s-rule"></div>
+    </div>
+
+    <div class="skills-layout">
+      <div class="skill-group reveal">
+        <div class="sk-heading">Engineering &amp; Design</div>
+        <div class="sk-item"><span class="sk-name">SolidWorks (CSWA + CSWP)</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div></div>
+        <div class="sk-item"><span class="sk-name">CAD / Parametric Modelling</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div></div>
+        <div class="sk-item"><span class="sk-name">FEA (ANSYS)</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">CFD (ANSYS Fluent)</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">3D Printing / Prototyping</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="sk-heading">Automation &amp; Electronics</div>
+        <div class="sk-item"><span class="sk-name">PLC Programming (Ladder Logic)</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">Control Panel Design &amp; Wiring</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">Embedded Systems (AVR / Arduino)</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">PCB Design</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">PID &amp; Closed-Loop Control</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="sk-heading">Methods &amp; Tools</div>
+        <div class="sk-item"><span class="sk-name">Mathematical Problem Solving</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div></div>
+        <div class="sk-item"><span class="sk-name">Excel &amp; Data Analysis</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">Python</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">Technical Documentation</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+        <div class="sk-item"><span class="sk-name">Collaborative Teamwork</span><div class="sk-bar"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div></div>
+      </div>
+    </div>
+
+    <div class="certs-row reveal">
+      <div class="cert">
+        <div class="cert-name">CSWA</div>
+        <div class="cert-detail">Certified SolidWorks Associate · 2022</div>
+      </div>
+      <div class="cert">
+        <div class="cert-name">CSWP</div>
+        <div class="cert-detail">Certified SolidWorks Professional · 2022</div>
+      </div>
+      <div class="cert">
+        <div class="cert-name">Safe Pass</div>
+        <div class="cert-detail">Construction Safety Training · Ireland</div>
+      </div>
+      <div class="cert">
+        <div class="cert-name">BEng (Hons)</div>
+        <div class="cert-detail">Mechanical &amp; Manufacturing · DCU · 2025</div>
+      </div>
+      <div class="cert">
+        <div class="cert-name">MEng</div>
+        <div class="cert-detail">Mechanical &amp; Simulation · DCU · 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <h2 class="contact-heading reveal">Let's work together.</h2>
+      <p class="contact-sub reveal">I'm open to engineering roles in automation, mechatronics, simulation, or product development — in Ireland or abroad. Reach out directly or connect on LinkedIn.</p>
+      <div class="contact-links reveal">
+        <a class="c-link" href="mailto:Leoantomurphy@gmail.com">
+          <span class="c-link-label">Email</span>
+          <span class="c-link-val">Leoantomurphy@gmail.com</span>
+        </a>
+        <a class="c-link" href="https://linkedin.com/in/leo-murphy-205834238" target="_blank" rel="noopener">
+          <span class="c-link-label">LinkedIn</span>
+          <span class="c-link-val">leo-murphy-205834238</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <span>Mechanical &amp; Automation Engineer · 2025</span>
+  </footer>
+
+  <script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
 </html>
