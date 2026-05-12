@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLC Control Panel Suite — Leo Murphy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="proj-topnav">
+    <a class="topnav-prev" href="project-pcb-business-card.html">← PCB Business Card</a>
+    <a class="topnav-all" href="index.html#projects">↑ All Projects</a>
+    <a class="topnav-next" href="project-agv.html">Autonomously Guided Vehicle →</a>
+  </div>
+
+  <section id="proj-hero">
+    <div class="proj-hero-bg">004</div>
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Project P — 004</div>
+      <h1 class="proj-name">PLC Control<br><em>Panel Suite</em></h1>
+    </div>
+    <div class="proj-hero-bottom">
+      <p class="proj-tagline">Industrial control panels built end-to-end during my time at Murphy International — from schematic to ladder logic to terminated wire, including a school-outreach unit that teaches PLC concepts through games.</p>
+      <div class="proj-meta">
+        <span>2024</span>
+        <span>Murphy International</span>
+        <span>Industrial Automation</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Overview</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="body-grid">
+      <div>
+        <p class="body-lead reveal">Designing a control panel is the engineering side of automation that lives in the gap between mechanical, electrical, and software — you have to think about every layer at once.</p>
+        <p class="body-text reveal">At Murphy International I worked across multiple panels: specifying components, drawing schematics, wiring the panels physically, writing the ladder logic, configuring HMIs, and producing the documentation that goes out with the installed system. The work spanned the full stack of an industrial control project.</p>
+        <p class="body-text reveal">The highlight piece was a demonstration panel built for secondary-school outreach — designed to make PLC programming legible to students who'd never seen ladder logic before. Motor control, an HMI touchscreen, animated traffic-light logic, and a playable Snake game all running on the same controller, each one chosen to illustrate a different PLC concept.</p>
+      </div>
+      <div class="body-aside reveal">
+        <div class="aside-fact">
+          <span class="aside-label">Role</span>
+          <span class="aside-value">Automation Engineer</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Employer</span>
+          <span class="aside-value">Murphy International</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Period</span>
+          <span class="aside-value">Mar — Dec 2024</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Stack</span>
+          <span class="aside-value">PLC · HMI · Ladder Logic</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section alt">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Scope of Work</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="block-list">
+      <div class="block reveal">
+        <div class="block-idx">W — 01</div>
+        <div class="block-title">Schematic &amp; Component Selection</div>
+        <p class="block-desc">Specified components from contactors to terminal blocks, drew schematics that captured the full electrical intent, and sourced parts against availability and lead-time constraints. The schematic is the contract everything else follows from.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">W — 02</div>
+        <div class="block-title">Panel Wiring</div>
+        <p class="block-desc">Wired panels from scratch — DIN-rail layout, power distribution, signal routing, labelling, ferruling, and termination. The discipline of clean panel wiring is half-engineering, half-craft.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">W — 03</div>
+        <div class="block-title">Ladder Logic Programming</div>
+        <p class="block-desc">Wrote the ladder logic that drives the panel — from straightforward motor control sequences through to event-driven game logic on the demo unit. Ladder logic enforces a particular discipline: every rung is a parallel evaluation, and your mental model has to match that.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">W — 04</div>
+        <div class="block-title">HMI Integration</div>
+        <p class="block-desc">Configured HMI touchscreens against the PLC's tag database — laying out screens that operators (or students) could actually use without needing to read the schematic. Good HMI design hides the complexity rather than mirroring it.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">W — 05</div>
+        <div class="block-title">Technical Documentation</div>
+        <p class="block-desc">Produced as-built documentation, wiring diagrams, and operator manuals to ship with installed systems. The panel doesn't really exist until it's documented in a way the next engineer can pick up cold.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">W — 06</div>
+        <div class="block-title">School Demo Unit</div>
+        <p class="block-desc">A standalone panel built specifically for secondary-school outreach — motor control, traffic-light animation, HMI interaction, and a playable Snake game implemented entirely in ladder logic. Designed to teach the abstract concepts of industrial control through things students can touch and play.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Technologies</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="tags-row">
+      <span class="tag">PLC / Ladder Logic</span>
+      <span class="tag">HMI</span>
+      <span class="tag">Panel Wiring</span>
+      <span class="tag">Motor Control</span>
+      <span class="tag">Schematic Design</span>
+      <span class="tag">Technical Documentation</span>
+      <span class="tag">Industrial Automation</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>

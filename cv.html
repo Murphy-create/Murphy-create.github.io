@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leo Murphy — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #F6F3EE;
+      --bg-alt:   #EDE9E1;
+      --ink:      #141210;
+      --ink-mid:  #3D3935;
+      --green:    #1B4332;
+      --green-2:  #2D6A4F;
+      --tan:      #8B7B65;
+      --rule:     #CEC9C1;
+      --muted:    #6B6460;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: var(--bg);
+      border-color: var(--rule);
+    }
+    .nav-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a.active { color: var(--green); }
+
+    /* ── HEADER ── */
+    #cv-header {
+      min-height: 70svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 6rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-bg-num {
+      position: absolute;
+      bottom: -0.05em;
+      right: -0.02em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24vw;
+      font-weight: 600;
+      color: var(--bg-alt);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 2.5rem;
+    }
+    .header-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .header-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--tan);
+    }
+    h1.header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    h1.header-title em {
+      font-style: italic;
+      color: var(--green);
+    }
+    .header-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 0 2.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .header-contact span,
+    .header-contact a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .header-contact a:hover { color: var(--green); }
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.4rem;
+      border: 1px solid var(--green);
+      color: var(--green);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+    .btn.btn-solid {
+      background: var(--green);
+      color: var(--bg);
+    }
+    .btn.btn-solid:hover {
+      background: var(--green-2);
+      border-color: var(--green-2);
+    }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 5rem 3rem; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .s-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--tan);
+      flex-shrink: 0;
+    }
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .s-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin-left: 0.75rem;
+    }
+
+    /* ── ENTRY BLOCKS ── */
+    .entry-list { display: flex; flex-direction: column; }
+    .entry {
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 3rem;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .entry:first-child { border-top: 1px solid var(--rule); }
+    .entry-period {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+      color: var(--muted);
+      padding-top: 0.3rem;
+    }
+    .entry-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.05;
+      margin-bottom: 0.2rem;
+    }
+    .entry-org {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 0.75rem;
+    }
+    .entry-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 44rem;
+    }
+
+    /* ── EDUCATION (alt bg) ── */
+    #education {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── SKILLS ── */
+    #skills-cv {
+      border-top: 1px solid var(--rule);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+    }
+    .sk-cell {
+      padding: 1.1rem 1.5rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .sk-cell-idx {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.13em;
+      color: var(--tan);
+      flex-shrink: 0;
+    }
+    .sk-cell-name {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+    }
+
+    /* ── PROJECTS ── */
+    #projects-cv {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--rule);
+    }
+    .proj-list { display: flex; flex-direction: column; }
+    .proj {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 11rem 1fr;
+      gap: 3rem;
+    }
+    .proj:first-child { border-top: 1px solid var(--rule); }
+    .proj-idx {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.13em;
+      color: var(--tan);
+      padding-top: 0.3rem;
+    }
+    .proj-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .proj-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 44rem;
+    }
+
+    /* ── CERTS ── */
+    #certs {
+      border-top: 1px solid var(--rule);
+    }
+    .certs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+    .cv-cert {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      min-width: 14rem;
+    }
+    .cv-cert-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .cv-cert-detail {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── REFERENCES ── */
+    #refs {
+      background: var(--green);
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+    #refs .s-title { color: var(--bg); }
+    #refs .s-num   { color: rgba(246,243,238,0.35); }
+    #refs .s-rule  { background: rgba(246,243,238,0.12); }
+    .refs-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 300;
+      color: var(--bg);
+      max-width: 36rem;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 3rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span, footer a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--green); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ── PRINT ── */
+    @media print {
+      nav, footer, .header-actions { display: none; }
+      body { background: #fff; }
+      section { padding: 1.5rem 0; page-break-inside: avoid; }
+      .reveal { opacity: 1; transform: none; }
+      #cv-header { min-height: auto; padding: 0 0 1rem; }
+      .header-bg-num { display: none; }
+      #refs { background: #fff; }
+      #refs .s-title { color: var(--ink); }
+      .refs-text { color: var(--ink-mid); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      #cv-header { padding: 5rem 1.5rem 0; }
+      .header-bg-num { font-size: 36vw; }
+      .entry, .proj { grid-template-columns: 1fr; gap: 0.4rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .header-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html" class="active">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <section id="cv-header">
+    <div class="header-bg-num">CV</div>
+
+    <div class="header-content">
+      <div class="header-eyebrow">Curriculum Vitae</div>
+      <h1 class="header-title">Leo <em>Murphy</em></h1>
+    </div>
+
+    <div class="header-bottom">
+      <div class="header-contact">
+        <span>Kilcock, Co. Kildare, Ireland · W23 Y5CD</span>
+        <a href="tel:+353874593407">+353 87 459 3407</a>
+        <a href="mailto:leoantomurphy@gmail.com">leoantomurphy@gmail.com</a>
+        <a href="https://linkedin.com/in/leo-murphy-205834238" target="_blank" rel="noopener">linkedin.com/in/leo-murphy-205834238</a>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-solid" href="Leo_Murphy_CV.pdf" download>Download PDF</a>
+        <a class="btn" href="index.html">← Back to site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience-cv">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Engineering Experience</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="entry-list">
+
+      <div class="entry reveal">
+        <div class="entry-period">Mar 2024<br>Dec 2024</div>
+        <div>
+          <div class="entry-role">Automation Engineer</div>
+          <div class="entry-org">Murphy International</div>
+          <p class="entry-desc">Worked full-time in the automation department on industrial control systems. Responsibilities included PLC programming, designing and wiring control panels, sourcing components, and producing technical documentation for installed systems.</p>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-period">Sep 2024<br>Nov 2024</div>
+        <div>
+          <div class="entry-role">SolidWorks Demonstrator</div>
+          <div class="entry-org">Dublin City University</div>
+          <p class="entry-desc">Delivered hands-on tutorials to first-year engineering students, guiding them through core SolidWorks functionality, including sketching, part modelling, and assemblies.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Education</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="entry-list">
+      <div class="entry reveal">
+        <div class="entry-period">Sep 2021<br>May 2026</div>
+        <div>
+          <div class="entry-role">Integrated BEng / MEng — Mechanical &amp; Manufacturing Engineering with Simulation</div>
+          <div class="entry-org">Dublin City University</div>
+          <p class="entry-desc">Completed a four-year integrated programme combining a BEng in Mechanical and Manufacturing Engineering with an MEng specialisation in Mechanical Simulation. Developed a structured, project-based approach to engineering problem-solving through major design builds, including the Final Year Project, the Fireman robot, and the Autonomous Guided Vehicle. Specialised in CFD and FEA using ANSYS to simulate mechanical responses and fluid-flow behaviour, and completed an independent research project requiring a critical review of academic literature.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills-cv">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Skills</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 01</span><span class="sk-cell-name">PLC programming &amp; industrial control systems</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 02</span><span class="sk-cell-name">CAD design — SolidWorks (CSWA, CSWP Segment 1)</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 03</span><span class="sk-cell-name">CFD &amp; FEA simulation (ANSYS)</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 04</span><span class="sk-cell-name">Embedded systems &amp; microcontroller programming (Arduino, ATmega)</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 05</span><span class="sk-cell-name">Strong mathematical &amp; analytical problem-solving</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 06</span><span class="sk-cell-name">Microsoft Excel — formulas, data analysis, charting</span></div>
+      <div class="sk-cell reveal"><span class="sk-cell-idx">S — 07</span><span class="sk-cell-name">Effective collaborator in team-based engineering projects</span></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects-cv">
+    <div class="section-header">
+      <span class="s-num">04</span>
+      <h2 class="s-title">Projects</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="proj-list">
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 001</div>
+        <div>
+          <div class="proj-title">Final Year Project — Automated DNA Amplification Platform</div>
+          <p class="proj-desc">Designed and built an automated platform for biological assay procedures (LAMP and PCR DNA amplification). A primary motor spins an offset disk, generating centrifugal forces to move liquids; a secondary motor reorients the force vector under closed-loop PID control. An integrated heater drives the amplification reaction, while a camera detects colour changes and reports results to the master node. The master node manages disk inventory, instruction sequencing, inter-node communication, and timing.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 002</div>
+        <div>
+          <div class="proj-title">Robot Arm (ongoing)</div>
+          <p class="proj-desc">Designing and building a multi-axis robot arm. Built an initial small-scale prototype to validate inverse kinematics calculations, followed by a second prototype with simple geared axes to test stepper-motor control using magnetic encoders. The next iteration will be a 5-axis arm using NEMA 17 steppers, geared down via cycloidal drives at the base and lower-arm joint, with a capstan drive for the upper arm.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 003</div>
+        <div>
+          <div class="proj-title">PCB Business Card</div>
+          <p class="proj-desc">Designed a custom PCB business card powered by a 3.3V coin cell, featuring five buttons and a charlieplexed LED display capable of running simple games. Built around an ATmega328P-AU microcontroller.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 004</div>
+        <div>
+          <div class="proj-title">Control Panels (Murphy International)</div>
+          <p class="proj-desc">Designed and built a range of demonstration control panels, including a school outreach unit featuring motor control, an HMI, traffic-light logic, and interactive games to introduce ladder logic and PLCs to secondary-school students.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 005</div>
+        <div>
+          <div class="proj-title">Fireman Project</div>
+          <p class="proj-desc">Designed and built a small robot to climb a 1m vertical ladder while carrying a beaker of water without spillage, then raced it head-to-head against competing designs. The challenge demanded creative problem-solving within tight constraints on materials, components, and manufacturing processes.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 006</div>
+        <div>
+          <div class="proj-title">Heart-Rate Sensor Proof of Concept (2022)</div>
+          <p class="proj-desc">Built a proof-of-concept optical heart-rate sensor using an LDR, green LED, and Arduino. The device illuminates the skin and measures voltage variations across the LDR, applying a 5-point moving average to smooth the signal. Successfully detected pulse peaks corresponding to blood-flow changes; early iterations did not compensate for ambient light, introducing baseline drift. SpO₂ measurement attempts were inconclusive but provided a strong basis for further iteration.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 007</div>
+        <div>
+          <div class="proj-title">Boat Project (2021)</div>
+          <p class="proj-desc">Designed a small boat in SolidWorks and analytically derived its velocity-time curve, tilt angle, and travel time over a fixed distance. 3D-printed the design and tested it experimentally to validate the analytical model.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 008</div>
+        <div>
+          <div class="proj-title">Autonomous Guided Vehicle (2021)</div>
+          <p class="proj-desc">Designed and built a small vehicle to autonomously follow a line, perform a three-point turn, and trace its route in reverse — all within strict material and dimensional constraints.</p>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">P — 009</div>
+        <div>
+          <div class="proj-title">Aluminium Casting (2020)</div>
+          <p class="proj-desc">Built a small home foundry from a repurposed hoover and 3D-printed components. Used 3D-printed pattern blanks to create sand moulds for casting aluminium parts.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OTHER EXPERIENCE -->
+  <section id="other-cv">
+    <div class="section-header">
+      <span class="s-num">05</span>
+      <h2 class="s-title">Other Experience</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="entry-list">
+
+      <div class="entry reveal">
+        <div class="entry-period">2014<br>Present</div>
+        <div>
+          <div class="entry-role">Farm Labourer</div>
+          <div class="entry-org">Family Farm</div>
+          <p class="entry-desc">Contribute to the daily running of the family farm across mornings, evenings, and weekends. Responsibilities include feeding, dosing, herding, and treating livestock, alongside general maintenance. Routinely operate heavy machinery including teleporters and tractors.</p>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-period">Jun 2023<br>Aug 2023</div>
+        <div>
+          <div class="entry-role">Labourer (Formworker)</div>
+          <div class="entry-org">AK Civil &amp; Construction</div>
+          <p class="entry-desc">Worked full-time as a formworker on civil construction sites. Built shutters, tied rebar, and finished concrete pours, working both independently and as part of a small crew.</p>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-period">May 2022<br>Sep 2022</div>
+        <div>
+          <div class="entry-role">Warehouse Picker</div>
+          <div class="entry-org">Musgraves</div>
+          <p class="entry-desc">Worked full-time in a high-volume warehouse, picking orders to tight deadlines as part of an integrated team. Operated pallet trucks and other handling equipment under strict health and safety procedures.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <div class="section-header">
+      <span class="s-num">06</span>
+      <h2 class="s-title">Certifications</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cv-cert reveal">
+        <div class="cv-cert-name">CSWA</div>
+        <div class="cv-cert-detail">Certified SolidWorks Associate — 2022</div>
+      </div>
+      <div class="cv-cert reveal">
+        <div class="cv-cert-name">CSWP</div>
+        <div class="cv-cert-detail">Certified SolidWorks Professional, Segment 1 — 2022</div>
+      </div>
+      <div class="cv-cert reveal">
+        <div class="cv-cert-name">Safe Pass</div>
+        <div class="cv-cert-detail">Construction Safety Training · Ireland</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section id="refs">
+    <div class="section-header">
+      <span class="s-num">07</span>
+      <h2 class="s-title">References</h2>
+      <div class="s-rule"></div>
+    </div>
+    <p class="refs-text reveal">References available on request.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

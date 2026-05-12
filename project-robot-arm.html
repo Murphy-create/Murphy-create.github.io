@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-DOF Robot Arm — Leo Murphy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="proj-topnav">
+    <a class="topnav-prev" href="project-dna-amplification.html">← DNA Amplification System</a>
+    <a class="topnav-all" href="index.html#projects">↑ All Projects</a>
+    <a class="topnav-next" href="project-pcb-business-card.html">PCB Business Card →</a>
+  </div>
+
+  <section id="proj-hero">
+    <div class="proj-hero-bg">002</div>
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Project P — 002 · Ongoing</div>
+      <h1 class="proj-name">6-DOF<br><em>Robot Arm</em></h1>
+    </div>
+    <div class="proj-hero-bottom">
+      <p class="proj-tagline">A multi-phase robotics project — three iterations, each one a deeper test of inverse kinematics, closed-loop control, and precision drive trains.</p>
+      <div class="proj-meta">
+        <span>2024 — Present</span>
+        <span>Personal Project</span>
+        <span class="status">● In development</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Overview</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="body-grid">
+      <div>
+        <p class="body-lead reveal">A robot arm is one of the canonical mechatronic problems — coordinated multi-axis motion, kinematic transforms, mechanical compliance, and control all converge in a single system. This project tackles it in iterations, each prototype scoped to validate one layer of the problem before moving on.</p>
+        <p class="body-text reveal">The progression is deliberate: prove the math first, then the control, then the drive train. Each version inherits the lessons of the last.</p>
+      </div>
+      <div class="body-aside reveal">
+        <div class="aside-fact">
+          <span class="aside-label">Status</span>
+          <span class="aside-value">Iteration 3 — in design</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Axes</span>
+          <span class="aside-value">5 (current target)</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Drive</span>
+          <span class="aside-value">NEMA 17 steppers</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Reduction</span>
+          <span class="aside-value">Twin cycloidal + capstan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section alt">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Iterations</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="block-list">
+      <div class="block reveal">
+        <div class="block-idx">V — 01</div>
+        <div class="block-title">Desktop Proof of Concept</div>
+        <p class="block-desc">A small-scale prototype built to validate the inverse kinematics calculations end-to-end. Goal: prove that the math correctly maps target poses to joint angles before investing in better hardware. Confirmed the IK chain worked on real geometry.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">V — 02</div>
+        <div class="block-title">Stepper + Encoder Closed Loop</div>
+        <p class="block-desc">Second prototype using stepper motors and magnetic encoders. Introduced closed-loop control on each axis — moving past open-loop stepping into position-verified motion. A first taste of dealing with backlash, missed steps, and sensor drift in a real drive train.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">V — 03</div>
+        <div class="block-title">5-Axis Final Design</div>
+        <p class="block-desc">Current iteration: a 5-axis arm driven by NEMA 17 steppers. Twin cycloidal drives at the base joint and lower arm provide high reduction with minimal backlash. A capstan drive handles the upper arm — chosen for its zero-backlash, smooth power transmission characteristics.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">V — 04</div>
+        <div class="block-title">Why These Drive Types</div>
+        <p class="block-desc">Cycloidal drives offer compact, high-ratio reduction with excellent shock resistance — ideal for the heavily-loaded base and lower arm. Capstan drives use cable-and-pulley reduction with effectively zero backlash, well suited to the lighter upper arm where precision matters more than torque density.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Technologies</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="tags-row">
+      <span class="tag">Inverse Kinematics</span>
+      <span class="tag">Stepper Motors</span>
+      <span class="tag">Magnetic Encoders</span>
+      <span class="tag">Cycloidal Drive</span>
+      <span class="tag">Capstan Drive</span>
+      <span class="tag">Closed-Loop Control</span>
+      <span class="tag">Control Theory</span>
+      <span class="tag">SolidWorks</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>

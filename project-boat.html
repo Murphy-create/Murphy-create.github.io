@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrodynamic Boat Project — Leo Murphy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="proj-topnav">
+    <a class="topnav-prev" href="project-heart-rate.html">← Heart Rate Monitor</a>
+    <a class="topnav-all" href="index.html#projects">↑ All Projects</a>
+    <a class="topnav-next" href="project-aluminium-foundry.html">Aluminium Foundry →</a>
+  </div>
+
+  <section id="proj-hero">
+    <div class="proj-hero-bg">007</div>
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Project P — 007</div>
+      <h1 class="proj-name">Hydrodynamic<br><em>Boat Project</em></h1>
+    </div>
+    <div class="proj-hero-bottom">
+      <p class="proj-tagline">Model a hull, derive the maths, print the boat, race it — and find out exactly how well the analytical prediction matches reality.</p>
+      <div class="proj-meta">
+        <span>2021</span>
+        <span>Dublin City University</span>
+        <span>Simulation &amp; Verification</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Overview</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="body-grid">
+      <div>
+        <p class="body-lead reveal">A first proper exercise in closing the loop between simulation and reality: design something analytically, predict how it will behave, then build it and see whether the prediction holds up.</p>
+        <p class="body-text reveal">The hull was modelled in SolidWorks. From the geometry I derived a velocity-time curve, the boat's tilt angle under load, and the predicted travel time over a fixed distance. The hull was then 3D-printed and raced against the analytical prediction in physical testing.</p>
+        <p class="body-text reveal">The lesson sat in the gap between the two: where the model held, where it didn't, and which assumptions were quietly doing the heavy lifting. An early version of the same loop I'd later run on far bigger projects.</p>
+      </div>
+      <div class="body-aside reveal">
+        <div class="aside-fact">
+          <span class="aside-label">Year</span>
+          <span class="aside-value">2021</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Context</span>
+          <span class="aside-value">DCU coursework</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">CAD</span>
+          <span class="aside-value">SolidWorks</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Manufacture</span>
+          <span class="aside-value">3D-printed hull</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section alt">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Method</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="block-list">
+      <div class="block reveal">
+        <div class="block-idx">M — 01</div>
+        <div class="block-title">CAD Modelling</div>
+        <p class="block-desc">The hull was designed in SolidWorks with attention to displaced volume, wetted area, and the basic mass distribution that drives the boat's tilt under propulsion.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">M — 02</div>
+        <div class="block-title">Analytical Derivation</div>
+        <p class="block-desc">Derived a velocity-time curve from a force balance: propulsive force against drag. From that, integrated to predicted travel time. Also computed the tilt angle the boat would adopt under the propulsion load.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">M — 03</div>
+        <div class="block-title">Manufacture &amp; Testing</div>
+        <p class="block-desc">3D-printed the hull and ran it under the same conditions assumed by the model. The race was the experiment — predicted travel time against measured travel time, with the difference telling the story.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">M — 04</div>
+        <div class="block-title">What This Project Taught</div>
+        <p class="block-desc">An early, honest encounter with the gap — and the bridge — between simulation and reality. Models are useful precisely because they're wrong in known ways; the engineering judgement is knowing which wrongness matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Technologies</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="tags-row">
+      <span class="tag">SolidWorks</span>
+      <span class="tag">3D Printing</span>
+      <span class="tag">Fluid Dynamics</span>
+      <span class="tag">Analytical Modelling</span>
+      <span class="tag">Verification</span>
+      <span class="tag">Experimental Testing</span>
+    </div>
+  </section>
+
+   <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>

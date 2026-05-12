@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fireman Robot — Leo Murphy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="proj-topnav">
+    <a class="topnav-prev" href="project-aluminium-foundry.html">← Aluminium Foundry</a>
+    <a class="topnav-all" href="index.html#projects">↑ All Projects</a>
+    <a class="topnav-next" href="project-dna-amplification.html">DNA Amplification System →</a>
+  </div>
+
+  <section id="proj-hero">
+    <div class="proj-hero-bg">009</div>
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Project P — 009</div>
+      <h1 class="proj-name">Fireman<br><em>Robot</em></h1>
+    </div>
+    <div class="proj-hero-bottom">
+      <p class="proj-tagline">A robot that climbs a 1-metre ladder carrying an open beaker of water without spilling — and races head-to-head against other student designs.</p>
+      <div class="proj-meta">
+        <span>2022</span>
+        <span>Dublin City University</span>
+        <span>Competitive Build</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Overview</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="body-grid">
+      <div>
+        <p class="body-lead reveal">A competitive university project with one of the better engineering briefs I've encountered: design and build a robot that can scale a 1-metre vertical ladder while carrying an open beaker of water — without spilling a drop — and race it head-to-head against other student designs.</p>
+        <p class="body-text reveal">The brief is sharper than it sounds. You're working under strict constraints on materials, components, and manufacturing processes; the beaker is open, so any acceleration that throws water out costs you; and the ladder is vertical, so the robot has to fight gravity all the way up. Speed matters because it's a race — but speed without smoothness drains the beaker.</p>
+        <p class="body-text reveal">That trade-off — fast versus smooth, aggressive versus stable — is what the whole design problem reduces to. Every decision on drive train, grip mechanism, payload mounting, and control loop comes back to it.</p>
+      </div>
+      <div class="body-aside reveal">
+        <div class="aside-fact">
+          <span class="aside-label">Year</span>
+          <span class="aside-value">2022</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Context</span>
+          <span class="aside-value">DCU competitive coursework</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Task</span>
+          <span class="aside-value">Climb 1m ladder, no spillage</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Payload</span>
+          <span class="aside-value">Open beaker of water</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Constraints</span>
+          <span class="aside-value">Limited materials, components, processes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section alt">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">Design Trade-Offs</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="block-list">
+      <div class="block reveal">
+        <div class="block-idx">T — 01</div>
+        <div class="block-title">Speed vs Spillage</div>
+        <p class="block-desc">The race rewards speed; the open beaker punishes acceleration. The optimum isn't max speed — it's max-smooth speed. The whole climb profile has to be tuned to stay under the threshold where water sloshes out.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">T — 02</div>
+        <div class="block-title">Climbing Mechanism</div>
+        <p class="block-desc">A vertical ladder needs positive grip — the robot can't rely on friction alone, since gravity is always trying to pull it back down. The grip mechanism has to engage rungs reliably and release them quickly enough not to stall the climb.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">T — 03</div>
+        <div class="block-title">Payload Mounting</div>
+        <p class="block-desc">Where the beaker sits on the robot dictates how it experiences acceleration. A high mounting point sees more whip; a low mounting point keeps the centre of mass favourable; a gimballed mount decouples the beaker from the chassis but costs weight. Each option trades against the others.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">T — 04</div>
+        <div class="block-title">Working Within Constraints</div>
+        <p class="block-desc">The challenge of constrained-build projects is that you can't engineer your way out with a bigger budget — you have to engineer your way out with a better idea. Material, component, and process limits force creativity onto the design rather than the bill of materials.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Technologies</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="tags-row">
+      <span class="tag">Mechanical Design</span>
+      <span class="tag">Constrained Manufacturing</span>
+      <span class="tag">Robotics</span>
+      <span class="tag">Climbing Mechanism</span>
+      <span class="tag">Competitive Engineering</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>

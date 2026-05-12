@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNA Amplification Automation System — Leo Murphy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-name" href="index.html">Leo Murphy</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="proj-topnav">
+    <a class="topnav-prev" href="project-fireman.html">← Fireman Robot</a>
+    <a class="topnav-all" href="index.html#projects">↑ All Projects</a>
+    <a class="topnav-next" href="project-robot-arm.html">6-DOF Robot Arm →</a>
+  </div>
+
+  <section id="proj-hero">
+    <div class="proj-hero-bg">001</div>
+    <div class="proj-hero-content">
+      <div class="proj-eyebrow">Project P — 001 · Featured</div>
+      <h1 class="proj-name">DNA Amplification<br><em>Automation System</em></h1>
+    </div>
+    <div class="proj-hero-bottom">
+      <p class="proj-tagline">A fully closed-loop mechatronic platform that automates LAMP and PCR DNA amplification end-to-end — from reagent routing to colorimetric readout.</p>
+      <div class="proj-meta">
+        <span>Final Year Project</span>
+        <span>Dublin City University · 2025</span>
+        <span>Mechatronic Build</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">01</span>
+      <h2 class="s-title">Overview</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="body-grid">
+      <div>
+        <p class="body-lead reveal">LAMP and PCR are biological techniques used to amplify trace amounts of DNA into quantities large enough to detect. Both demand careful liquid handling, precise thermal cycling, and consistent timing — traditionally performed by hand or on expensive lab equipment.</p>
+        <p class="body-text reveal">This project consolidates that workflow into a single, closed-loop machine. Reagents live on a disposable cartridge disk; the machine spins the disk, routes liquids through microfluidic channels via centrifugal force, applies controlled heat for amplification, and reads the result optically — all under autonomous orchestration by a master control node.</p>
+        <p class="body-text reveal">The system is modular by design. Each function — drive, thermal, vision, control — runs on its own node and communicates with the master over a shared messaging bus, allowing the disk type and instruction sequence to drive the entire process.</p>
+      </div>
+      <div class="body-aside reveal">
+        <div class="aside-fact">
+          <span class="aside-label">Year</span>
+          <span class="aside-value">2025</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Context</span>
+          <span class="aside-value">Final Year Project · DCU</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Domain</span>
+          <span class="aside-value">Mechatronics · Biotech Automation</span>
+        </div>
+        <div class="aside-fact">
+          <span class="aside-label">Role</span>
+          <span class="aside-value">Mechanical design, control, integration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section alt">
+    <div class="section-header">
+      <span class="s-num">02</span>
+      <h2 class="s-title">System Architecture</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="block-list">
+      <div class="block reveal">
+        <div class="block-idx">N — 01</div>
+        <div class="block-title">Master Control Node</div>
+        <p class="block-desc">Maintains a registry of disk types and the instruction sequence each one requires. Orchestrates inter-node messaging, sequencing, and precise timing across the full process. Effectively the brain that turns a high-level "run this protocol" command into coordinated low-level actions.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">N — 02</div>
+        <div class="block-title">Primary Drive</div>
+        <p class="block-desc">A main motor spins an offset disk to generate centrifugal forces that drive liquid movement through the microfluidic channels. The geometry of the offset disk converts rotational speed into directional fluid motion without contact-based pumping.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">N — 03</div>
+        <div class="block-title">PID-Controlled Force Vector</div>
+        <p class="block-desc">A secondary motor under closed-loop PID control dynamically alters the direction of centrifugal force, routing reagents through different stages of the assay. This is the key control problem: keeping the force vector aligned to the right channel at the right time.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">N — 04</div>
+        <div class="block-title">Thermal Subsystem</div>
+        <p class="block-desc">A controlled heater manages thermal cycling for DNA amplification. LAMP runs isothermally, PCR requires step changes — the controller handles both profiles under the master node's instruction.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">N — 05</div>
+        <div class="block-title">Optical Readout</div>
+        <p class="block-desc">A camera observes the reaction wells and detects the colorimetric result of amplification. Results are reported back to the master node, which interprets them according to the disk's instruction set.</p>
+      </div>
+      <div class="block reveal">
+        <div class="block-idx">N — 06</div>
+        <div class="block-title">Microfluidic Cartridge</div>
+        <p class="block-desc">The disposable disk that holds reagents and defines the routing geometry. Different disk types map to different protocols — the master node identifies the disk and loads the matching instruction sequence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <div class="section-header">
+      <span class="s-num">03</span>
+      <h2 class="s-title">Technologies</h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="tags-row">
+      <span class="tag">PID Control</span>
+      <span class="tag">Embedded Systems</span>
+      <span class="tag">Mechatronics</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Microfluidics</span>
+      <span class="tag">Python</span>
+      <span class="tag">Centrifugal Routing</span>
+      <span class="tag">Thermal Control</span>
+      <span class="tag">Inter-Node Messaging</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Leo Murphy · Kildare, Ireland</span>
+    <a href="index.html">← Back to main site</a>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>
