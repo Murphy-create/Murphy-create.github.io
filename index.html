@@ -331,8 +331,30 @@
       border-bottom: 1px solid var(--rule);
       padding: 2rem 1.75rem;
       transition: background 0.2s;
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      position: relative;
     }
     .p-card:hover { background: var(--bg-alt); }
+    .p-card:hover .p-title { color: var(--green); }
+    .p-card::after {
+      content: '→';
+      position: absolute;
+      top: 1.4rem;
+      right: 1.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--tan);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s, transform 0.25s, color 0.25s;
+    }
+    .p-card:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--green);
+    }
     .p-card.span2 { grid-column: span 2; }
     .p-card.span3 { grid-column: span 3; }
     .p-idx {
@@ -571,6 +593,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="cv.html">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -615,8 +638,8 @@
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-lead reveal">Mechanical and manufacturing engineer with a master's in simulation, a deep hands-on practice, and a maker's instinct for building things that actually work.</p>
-        <p class="about-body reveal">I completed my undergraduate and postgraduate degrees at Dublin City University , graduating in 2025 with specialisms in mechanical design, and computational simulation using CFD and FEA tools. I also have experence and interest PLC and automation more generally</p>
+        <p class="about-lead reveal">Mechanical and manufacturing engineer with a master's in simulation with a predicted 2.1, a deep hands-on practice, and a maker's instinct for building things that actually work.</p>
+        <p class="about-body reveal">I completed my undergraduate and postgraduate degrees at Dublin City University simultaneously, graduating in 2025 with specialisms in mechanical design, PLC automation, and computational simulation using CFD and FEA tools.</p>
         <p class="about-body reveal">Outside the degree, I've been building since before college — home foundries, Arduino heart-rate monitors, line-following robots. The thread connecting all of it: an obsession with making physical systems behave exactly as intended.</p>
         <p class="about-body reveal">My most recent professional role was as an Automation Engineer at Murphys International, where I programmed PLCs, designed and wired control panels, and built out educational demonstrations for secondary school students. I also demonstated SolidWorks to first-year DCU students.</p>
       </div>
@@ -639,7 +662,7 @@
         </div>
         <div class="fact">
           <span class="fact-label">Disciplines</span>
-          <span class="fact-value">PLC Programming · CAD/CAM · Simulation (CFD/FEA) · Electronics · Robotics</span>
+          <span class="fact-value">Mechanical Design · CAD/CAM · Simulation (CFD/FEA) · PLC Programming · Electronics · Robotics</span>
         </div>
       </div>
     </div>
@@ -679,7 +702,7 @@
         <div class="exp-body">
           <div class="exp-role">Construction Labourer</div>
           <div class="exp-org">AK Civil &amp; Construction</div>
-          <p class="exp-desc">Full-time summer position on a construction site. Roles included constructing formwork (shutters), tying rebar cages, and concrete finishing. Worked independently with a high degree of accountability for build quality.</p>
+          <p class="exp-desc">Full-time summer position on a civil engineering site. Roles included constructing formwork (shutters), tying rebar cages, and concrete finishing. Worked independently with a high degree of accountability for build quality.</p>
           <span class="exp-type">Full-time · Seasonal</span>
         </div>
       </div>
@@ -717,7 +740,7 @@
     <div class="projects-grid">
 
       <!-- Featured -->
-      <div class="p-card span2 reveal">
+      <a class="p-card span2 reveal" href="project-dna-amplification.html">
         <div class="p-idx">P — 001 · Featured</div>
         <div class="p-title">DNA Amplification Automation System</div>
         <div class="p-year">Final Year Project · 2025</div>
@@ -728,10 +751,11 @@
           <span class="tag">Mechatronics</span>
           <span class="tag">Computer Vision</span>
           <span class="tag">Microfluidics</span>
+          <span class="tag">Python</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-robot-arm.html">
         <div class="p-idx">P — 002</div>
         <div class="p-title">6-DOF Robot Arm</div>
         <div class="p-year">2024 — Ongoing</div>
@@ -743,9 +767,9 @@
           <span class="tag">Control Theory</span>
         </div>
         <div class="p-status">In development</div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-pcb-business-card.html">
         <div class="p-idx">P — 003</div>
         <div class="p-title">PCB Business Card</div>
         <div class="p-year">2023</div>
@@ -756,9 +780,9 @@
           <span class="tag">Charlieplexing</span>
           <span class="tag">Embedded C</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-control-panels.html">
         <div class="p-idx">P — 004</div>
         <div class="p-title">PLC Control Panel Suite</div>
         <div class="p-year">2024</div>
@@ -769,9 +793,9 @@
           <span class="tag">Panel Wiring</span>
           <span class="tag">Motor Control</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-agv.html">
         <div class="p-idx">P — 005</div>
         <div class="p-title">Autonomously Guided Vehicle</div>
         <div class="p-year">2021 · DCU</div>
@@ -782,9 +806,9 @@
           <span class="tag">Sensors</span>
           <span class="tag">Manufacturing</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-heart-rate.html">
         <div class="p-idx">P — 006</div>
         <div class="p-title">Heart Rate Monitor Proof of Concept</div>
         <div class="p-year">2022</div>
@@ -795,9 +819,9 @@
           <span class="tag">PPG Sensing</span>
           <span class="tag">Analogue Electronics</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-boat.html">
         <div class="p-idx">P — 007</div>
         <div class="p-title">Hydrodynamic Boat Project</div>
         <div class="p-year">2021 · DCU</div>
@@ -808,9 +832,9 @@
           <span class="tag">Fluid Dynamics</span>
           <span class="tag">Verification</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-aluminium-foundry.html">
         <div class="p-idx">P — 008</div>
         <div class="p-title">Aluminium Foundry</div>
         <div class="p-year">2020 · Personal</div>
@@ -821,9 +845,9 @@
           <span class="tag">3D Printing</span>
           <span class="tag">DIY</span>
         </div>
-      </div>
+      </a>
 
-      <div class="p-card reveal">
+      <a class="p-card reveal" href="project-fireman.html">
         <div class="p-idx">P — 009</div>
         <div class="p-title">Fireman Robot</div>
         <div class="p-year">2022 · DCU</div>
@@ -833,7 +857,7 @@
           <span class="tag">Constrained Manufacturing</span>
           <span class="tag">Robotics</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
@@ -903,7 +927,7 @@
   <section id="contact">
     <div class="contact-inner">
       <h2 class="contact-heading reveal">Let's work together.</h2>
-      <p class="contact-sub reveal">I'm open to engineering roles in design, automation, mechatronics, simulation, or product development — in Ireland or abroad. Reach out directly or connect on LinkedIn.</p>
+      <p class="contact-sub reveal">I'm open to engineering roles in automation, mechatronics, simulation, or product development — in Ireland or abroad. Reach out directly or connect on LinkedIn.</p>
       <div class="contact-links reveal">
         <a class="c-link" href="mailto:Leoantomurphy@gmail.com">
           <span class="c-link-label">Email</span>
@@ -912,6 +936,10 @@
         <a class="c-link" href="https://linkedin.com/in/leo-murphy-205834238" target="_blank" rel="noopener">
           <span class="c-link-label">LinkedIn</span>
           <span class="c-link-val">leo-murphy-205834238</span>
+        </a>
+        <a class="c-link" href="cv.html">
+          <span class="c-link-label">CV</span>
+          <span class="c-link-val">View full CV →</span>
         </a>
       </div>
     </div>
